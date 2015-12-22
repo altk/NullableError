@@ -53,12 +53,12 @@ namespace NullableError
             //NullableInt64 = (DateTimeOffset.Now - DateTimeOffset.MinValue).TotalMilliseconds < 0 ? (Int64?) 125 : null;
             if ((DateTimeOffset.Now - DateTimeOffset.MinValue).TotalMilliseconds < 0)
             {
-                Debug.WriteLine("-------------- IF ----------------");
+                Debug.WriteLine("-------------- IF --------------");
                 NullableInt64 = 125;
             }
             else
             {
-                Debug.WriteLine("-------------- ELSE ----------------");
+                Debug.WriteLine("-------------- ELSE --------------");
                 NullableInt64 = null;
             }
 
@@ -67,7 +67,7 @@ namespace NullableError
             //AnotherNullableInt64 = 0;
             AnotherNullableInt64 = null;
 
-            Debug.WriteLine($"-------------- {this[nameof(NullableInt64)] ?? "SUCCESS"} ----------------");
+            Debug.WriteLine(String.Format("-------------- {0} --------------", this[nameof(NullableInt64)] == "0" ? "FAIL" : "SUCCESS"));
         }
 
         private String this[String key]
